@@ -18,6 +18,12 @@ export default function RootLayout({
   return (
     <html lang="it">
       <body>
+        <img
+          src="/sviluppo-urbano-logo.png"
+          alt=""
+          aria-hidden="true"
+          className="bg-watermark"
+        />
         <div className="shell">
           <header className="topbar">
             <span className="wordmark">Archivio Sviluppo Urbano</span>
