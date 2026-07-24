@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #f6f5f1;
+  --surface: #ffffff;
+  --border: #e3e1da;
+  --border-strong: #cfccc2;
+  --text-primary: #1e1d1b;
+  --text-secondary: #726f68;
+  --text-muted: #a5a29a;
+  --accent: #0f6e56;
+  --accent-hover: #0b5744;
+  --accent-tint: #e1f0eb;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.shell {
+  min-height: 100vh;
+}
+
+.topbar {
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.wordmark {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.content {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+}
+
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.page-head h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.page-head p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.new-folder-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.new-folder-btn:hover {
+  background: var(--accent-hover);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 14px;
+}
+
+.folder-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 18px 18px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.folder-card::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 18px;
+  width: 34px;
+  height: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+}
+
+.folder-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+
+.folder-icon {
+  color: var(--accent);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.folder-name {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 3px;
+}
+
+.folder-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.folder-card--add {
+  border-style: dashed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: default;
+  color: var(--text-muted);
+}
+
+.folder-card--add::before {
+  display: none;
+}
+
+.folder-card--add .folder-icon {
+  color: var(--text-muted);
+}
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.breadcrumb:hover {
+  color: var(--text-primary);
+}
+
+.empty-state {
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 24px;
+}
