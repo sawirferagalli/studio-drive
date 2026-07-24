@@ -41,6 +41,23 @@ a {
   padding: 20px 40px;
   border-bottom: 1px solid var(--border);
   background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+
+.logout-btn:hover {
+  color: var(--text-primary);
 }
 
 .wordmark {
@@ -166,17 +183,157 @@ a {
   color: var(--text-muted);
 }
 
-.breadcrumb {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.breadcrumb-row {
   font-size: 13px;
   color: var(--text-secondary);
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+}
+
+.breadcrumb {
+  color: var(--text-secondary);
 }
 
 .breadcrumb:hover {
   color: var(--text-primary);
+}
+
+.breadcrumb-sep {
+  margin: 0 6px;
+  color: var(--text-muted);
+}
+
+.breadcrumb-current {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.head-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.new-folder-btn.secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+}
+
+.new-folder-btn.secondary:hover {
+  background: var(--bg);
+}
+
+.new-folder-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.new-folder-form input {
+  flex: 1;
+  max-width: 280px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.new-folder-form button {
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  border: none;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.error-text {
+  color: #b3261e;
+  font-size: 13px;
+  margin: 0 0 16px;
+}
+
+.folder-card-wrap {
+  position: relative;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.folder-card-wrap:hover .delete-btn {
+  display: flex;
+}
+
+.delete-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.login-wrap {
+  max-width: 360px;
+  margin: 80px auto 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 28px;
+}
+
+.login-wrap h1 {
+  font-size: 18px;
+  margin: 0 0 6px;
+}
+
+.login-wrap p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0 0 20px;
+}
+
+.login-wrap input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 14px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.login-wrap button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.login-error {
+  color: #b3261e;
+  font-size: 13px;
+  margin: 0 0 12px;
 }
 
 .empty-state {
