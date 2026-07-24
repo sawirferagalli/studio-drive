@@ -20,7 +20,7 @@ export default function RootLayout({
       <body>
         <div className="shell">
           <header className="topbar">
-            <span className="wordmark">Archivio</span>
+            <span className="wordmark">Archivio Sviluppo Urbano</span>
             {isAuthed && (
               <form action="/api/logout" method="POST">
                 <button type="submit" className="logout-btn">
