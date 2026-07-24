@@ -217,9 +217,7 @@ export default function DriveView({
           ) : (
             <div key={item.id} className="folder-card-wrap">
               <a
-                href={`/api/files/download?pathname=${encodeURIComponent(
-                  item.blob_pathname || ""
-                )}`}
+                href={`/api/files/download?id=${item.id}`}
                 className="folder-card"
               >
                 <FileIcon />

@@ -1,22 +1,34 @@
 import { NextRequest, NextResponse } from "next/server";
-import { get } from "@vercel/blob";
+import { getItem } from "@/lib/db";
 
 export async function GET(request: NextRequest) {
-  const pathname = request.nextUrl.searchParams.get("pathname");
+  const id = request.nextUrl.searchParams.get("id");
 
-  if (!pathname) {
-    return NextResponse.json({ error: "Percorso mancante." }, { status: 400 });
+  if (!id) {
+    return NextResponse.json({ error: "Id mancante." }, { status: 400 });
   }
 
-  const result = await get(pathname, { access: "private" });
+  const item = await getItem(id);
 
-  if (!result || result.statusCode !== 200) {
+  if (!item || item.type !== "file" || !item.blob_url) {
+    return NextResponse.json({ error: "File non trovato." }, { status: 404 });
+  }
+
+  const blobResponse = await fetch(item.blob_url, {
+    headers: {
+      Authorization: `Bearer ${process.env.BLOB_READ_WRITE_TOKEN}`,
+    },
+  });
+
+  if (!blobResponse.ok || !blobResponse.body) {
     return new NextResponse("File non trovato", { status: 404 });
   }
 
-  return new NextResponse(result.stream, {
+  return new NextResponse(blobResponse.body, {
     headers: {
-      "Content-Type": result.blob.contentType || "application/octet-stream",
+      "Content-Type":
+        blobResponse.headers.get("content-type") || "application/octet-stream",
+      "Content-Disposition": `attachment; filename="${item.name.replace(/"/g, "")}"`,
       "X-Content-Type-Options": "nosniff",
     },
   });
