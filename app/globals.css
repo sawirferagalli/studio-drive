@@ -346,3 +346,17 @@ a {
   font-size: 14px;
   margin-top: 24px;
 }
+
+.bg-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  max-width: 75vw;
+  height: auto;
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
